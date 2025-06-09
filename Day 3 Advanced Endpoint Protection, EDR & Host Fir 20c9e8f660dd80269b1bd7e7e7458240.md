@@ -190,7 +190,7 @@ Day 3 emphasizes advanced security controls including proper logging with Sysmon
 - Avoid "sheeple" mentality that looks down on non-technical people
 - Building trust through giving creates more opportunities than taking
 
-## Quiz Questions and Answers
+## Quiz Questions
 
 1. **Question**: Explain why Windows NTLM authentication is considered "clear-text" despite using password hashes, and how this enables pass-the-hash attacks.
     - **Answer**: Windows NTLM authentication is considered clear-text because the entire authentication exchange happens in the clear over the network. The process works as follows: (1) Client attempts to authenticate, (2) Server sends a random 16-byte challenge in clear text, (3) Client wraps their password hash (not password) with this challenge using a well-known algorithm and sends the response in clear text. Since there's no salting and the algorithm is known, an attacker can intercept this traffic and reverse-engineer the password hash from the challenge and response. Pass-the-hash attacks work because Windows accepts the hash value itself as valid authentication - attackers don't need to crack the password, they can use the intercepted hash directly to authenticate to other systems in the environment.

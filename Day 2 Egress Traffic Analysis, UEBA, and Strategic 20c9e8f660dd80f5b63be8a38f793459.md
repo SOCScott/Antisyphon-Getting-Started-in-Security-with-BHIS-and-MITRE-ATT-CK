@@ -1,7 +1,5 @@
 # Day 2: Egress Traffic Analysis, UEBA, and Strategic Logging
 
-# Day 2: Egress Traffic Analysis, UEBA & Logging
-
 ## Introduction Summary
 
 Day 2 focuses on advanced network threat detection and User Entity Behavioral Analytics (UEBA), moving beyond traditional signature-based detection to mathematical and behavioral analysis. The session covers egress traffic analysis using tools like Zeek and Rita for beacon detection, the critical importance of proper logging strategies, and why Windows default event logging is inadequate for security analysis. The instructor emphasizes that with encrypted traffic becoming standard, organizations need mathematical approaches to identify command & control patterns, comprehensive log correlation across multiple sources, and proper tuning mindset rather than expecting AI to automatically solve security problems.
@@ -199,23 +197,20 @@ Day 2 focuses on advanced network threat detection and User Entity Behavioral An
 - JA3/JA4 TLS fingerprinting for analyzing encrypted connections
 - User agent string analysis for identifying suspicious or unique clients
 
-## Quiz Questions and Answers
+## Quiz Questions
 
-### Question 1: Why does traditional signature-based detection fail for modern network traffic analysis, and what mathematical approach does Rita use to solve this problem?
+1. **Question**: Why does traditional signature-based detection fail for modern network traffic analysis, and what mathematical approach does Rita use to solve this problem?
 
-**Answer:** Signature-based detection fails because modern attacks use encrypted HTTPS/TLS traffic, making content inspection impossible. Even TLS/SSL interception products fail because sophisticated attackers employ double encryption or additional encoding/obfuscation. Rita solves this using mathematical analysis of beacon characteristics - specifically interval timing, data size, and connection duration. Using K-means clustering algorithms, Rita identifies command & control patterns regardless of encryption by analyzing metadata rather than content. Perfect beacons cluster near a score of 1.0 with high connection counts (100K+ vs. normal 20-80), making encrypted C2 traffic mathematically identifiable.
+    - **Answer**: Signature-based detection fails because modern attacks use encrypted HTTPS/TLS traffic, making content inspection impossible. Even TLS/SSL interception products fail because sophisticated attackers employ double encryption or additional encoding/obfuscation. Rita solves this using mathematical analysis of beacon characteristics - specifically interval timing, data size, and connection duration. Using K-means clustering algorithms, Rita identifies command & control patterns regardless of encryption by analyzing metadata rather than content. Perfect beacons cluster near a score of 1.0 with high connection counts (100K+ vs. normal 20-80), making encrypted C2 traffic mathematically identifiable.
 
-### Question 2: What is the John Strand’s philosophy about "false positives" in UEBA systems, and why does he believe this mindset is critical for cybersecurity professionals?
+2. **Question**: What is the John Strand’s philosophy about "false positives" in UEBA systems, and why does he believe this mindset is critical for cybersecurity professionals?
+    - **Answer**: The instructor argues there are no "false positives," only "detection tuning opportunities." When an alert triggers (like an account logging into hundreds of systems), the alert is working correctly - it's detecting abnormal behavior as designed. Calling them false positives psychologically shifts blame to the vendor and leads to alerts being disabled rather than properly tuned. The correct approach is creating exceptions for legitimate use cases (service accounts, help desk users, vulnerability scanners). This tuning process is fundamental to the analyst's job and builds deep network understanding. The instructor warns that expecting AI to automatically handle this makes security professionals replaceable, as the industry has "set the bar so low" for automation.
 
-**Answer:** The instructor argues there are no "false positives," only "detection tuning opportunities." When an alert triggers (like an account logging into hundreds of systems), the alert is working correctly - it's detecting abnormal behavior as designed. Calling them false positives psychologically shifts blame to the vendor and leads to alerts being disabled rather than properly tuned. The correct approach is creating exceptions for legitimate use cases (service accounts, help desk users, vulnerability scanners). This tuning process is fundamental to the analyst's job and builds deep network understanding. The instructor warns that expecting AI to automatically handle this makes security professionals replaceable, as the industry has "set the bar so low" for automation.
+3. **Question**: Describe the "spaghetti string" analogy for long connection analysis and explain how it helps detect command & control traffic.
+    - **Answer**: The "spaghetti string" analogy explains how Rita detects fragmented command & control communications over time. Like breaking a dry spaghetti string into various sized pieces (some long, some short, some medium), attackers may randomize individual connection sizes to evade detection. However, when you reassemble all the pieces, the total length remains the same. Rita analyzes all connections between two systems over extended periods (like 24 hours). Regardless of whether individual connections are tiny, large, or mixed sizes, the total communication duration reveals the persistent C2 channel. This mathematical approach identifies long-term compromise even when attackers attempt to disguise traffic patterns through connection fragmentation.
 
-### Question 3: Describe the "spaghetti string" analogy for long connection analysis and explain how it helps detect command & control traffic.
-
-**Answer:** The "spaghetti string" analogy explains how Rita detects fragmented command & control communications over time. Like breaking a dry spaghetti string into various sized pieces (some long, some short, some medium), attackers may randomize individual connection sizes to evade detection. However, when you reassemble all the pieces, the total length remains the same. Rita analyzes all connections between two systems over extended periods (like 24 hours). Regardless of whether individual connections are tiny, large, or mixed sizes, the total communication duration reveals the persistent C2 channel. This mathematical approach identifies long-term compromise even when attackers attempt to disguise traffic patterns through connection fragmentation.
-
-### Question 4: Why does the instructor consider Windows default event logging "absolute garbage" for security analysis, and how does Sysmon solve these problems?
-
-**Answer:** Windows default event logging fails because it focuses on application performance rather than security events. Critical security activities like command line execution aren't logged by default, and enabling them requires complex multi-step configuration processes involving audit policies, registry settings, and group policy modifications. The instructor notes he's been doing cybersecurity for 25 years and still can't understand most Windows event log entries, which focus on meaningless technical details rather than actionable security information. Sysmon solves this with single-command deployment (`sysmon.exe -accepteula -i config.xml`) that immediately provides detailed process execution logging including command lines, file hashes, parent processes, and user context - all the information needed for effective security analysis and incident response.
+4. **Question**: Why does the Johns Strand consider Windows default event logging "absolute garbage" for security analysis, and how does Sysmon solve these problems?
+    - **Answer**: Windows default event logging fails because it focuses on application performance rather than security events. Critical security activities like command line execution aren't logged by default, and enabling them requires complex multi-step configuration processes involving audit policies, registry settings, and group policy modifications. The instructor notes he's been doing cybersecurity for 25 years and still can't understand most Windows event log entries, which focus on meaningless technical details rather than actionable security information. Sysmon solves this with single-command deployment (`sysmon.exe -accepteula -i config.xml`) that immediately provides detailed process execution logging including command lines, file hashes, parent processes, and user context - all the information needed for effective security analysis and incident response.
 
 ## Notable Quotes
 
@@ -230,7 +225,3 @@ Day 2 focuses on advanced network threat detection and User Entity Behavioral An
 
 > "The tuning is literally our job. We've gotten into this really bad place in security where we expect the tool to automatically do these things for us."
 > 
-
----
-
-*This study guide is formatted for easy import into Notion. Copy and paste the content into a new Notion page to maintain formatting and structure.*

@@ -1,7 +1,5 @@
 # Day 1: Getting Started in Security with BHIS and MITRE ATT&CK
 
-# Day 1: Getting Started in Security with BHIS and MITRE ATT&CK
-
 [https://www.youtube.com/live/cuae43KVtHo](https://www.youtube.com/live/cuae43KVtHo)
 
 ## **Introductory Summary**
@@ -255,7 +253,7 @@ These three default rules allow systems to run efficiently while blocking malwar
 
 Why does the instructor argue that password length is more important than complexity, and what minimum length does he recommend?
 
-**Answer:** Password length is the only factor that truly matters for security because longer passwords exponentially increase cracking time. The instructor recommends a minimum of 20 characters. Complex but short passwords (8-10 characters) can be cracked in hours with modern GPU-based attacks, while longer passphrases using dictionary words are both more secure and user-friendly.
+    - **Answer:** Password length is the only factor that truly matters for security because longer passwords exponentially increase cracking time. The instructor recommends a minimum of 20 characters. Complex but short passwords (8-10 characters) can be cracked in hours with modern GPU-based attacks, while longer passphrases using dictionary words are both more secure and user-friendly.
 
 ### **Question 4**
 

@@ -1,5 +1,7 @@
 # Day 4: Velociraptor, Internet Allow Listing & Web App Security
 
+https://www.youtube.com/watch?v=kauD4kpJNGw
+
 ## Introduction Summary
 
 Day 4 completes the security fundamentals course by covering advanced incident response capabilities with Velociraptor, internet allow listing strategies, effective vulnerability management approaches, and web application security testing. The session emphasizes practical tools that provide immediate security value: Velociraptor for enterprise-scale incident response, internet allow listing to block unknown domains, vulnerability management focused on systemic fixes rather than individual IP addresses, and automated web application scanning. The instructor concludes with reflections on the pay-what-you-can training philosophy and the importance of breaking down financial barriers to cybersecurity education.

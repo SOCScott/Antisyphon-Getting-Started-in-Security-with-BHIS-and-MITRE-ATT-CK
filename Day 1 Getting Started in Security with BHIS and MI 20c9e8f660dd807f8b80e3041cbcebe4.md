@@ -236,13 +236,13 @@ This cybersecurity training module focuses on practical, effective security cont
 
 What is the primary reason John Strand recommends against focusing solely on security tools rather than foundational skills?
 
-**Answer:** Security professionals who only know how to use tools are at risk of being replaced by those tools/AI. Recent industry layoffs have primarily affected people who focused on tool operation (like CrowdStrike, Sentinel One) rather than developing core Windows, Linux, and networking skills. Building fundamental knowledge makes you irreplaceable.
+   - **Answer:** Security professionals who only know how to use tools are at risk of being replaced by those tools/AI. Recent industry layoffs have primarily affected people who focused on tool operation (like CrowdStrike, Sentinel One) rather than developing core Windows, Linux, and networking skills. Building fundamental knowledge makes you irreplaceable.
 
 ### **Question 2**
 
 According to the training, what three directories should be included in a basic AppLocker allow listing policy?
 
-**Answer:**
+   - **Answer:**
 
 1. Windows directory
 2. Program Files directory
@@ -253,13 +253,13 @@ These three default rules allow systems to run efficiently while blocking malwar
 
 Why does the instructor argue that password length is more important than complexity, and what minimum length does he recommend?
 
-    - **Answer:** Password length is the only factor that truly matters for security because longer passwords exponentially increase cracking time. The instructor recommends a minimum of 20 characters. Complex but short passwords (8-10 characters) can be cracked in hours with modern GPU-based attacks, while longer passphrases using dictionary words are both more secure and user-friendly.
+   - **Answer:** Password length is the only factor that truly matters for security because longer passwords exponentially increase cracking time. The instructor recommends a minimum of 20 characters. Complex but short passwords (8-10 characters) can be cracked in hours with modern GPU-based attacks, while longer passphrases using dictionary words are both more secure and user-friendly.
 
 ### **Question 4**
 
 What is Kerberoasting and why was it initially rejected by major security conferences?
 
-**Answer:** Kerberoasting is an attack where any user account can request ticket-granting tickets for service accounts, which contain the service account's password hash. The attacker can then crack these hashes offline. It was initially rejected by Black Hat and DEF CON because it seemed too simple or unbelievable, but it fundamentally changed attack methodologies in Windows environments. Tim Medin, who discovered this technique, was eventually accepted at DerbyCon where it became recognized as a critical security issue.
+   - **Answer:** Kerberoasting is an attack where any user account can request ticket-granting tickets for service accounts, which contain the service account's password hash. The attacker can then crack these hashes offline. It was initially rejected by Black Hat and DEF CON because it seemed too simple or unbelievable, but it fundamentally changed attack methodologies in Windows environments. Tim Medin, who discovered this technique, was eventually accepted at DerbyCon where it became recognized as a critical security issue.
 
 ---
 
